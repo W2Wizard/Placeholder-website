@@ -127,10 +127,18 @@
 			height: 64px;
 			height: 64px;
 			transition: filter 0.1s ease-out;
+			--glow-strength: 8px;
 
 			&:hover {
 				cursor: pointer;
-				filter: drop-shadow(var(--purple) 0px 0px 4px);
+				filter: drop-shadow(var(--purple) 0px 0px var(--glow-strength));
+			}
+
+			@media (prefers-color-scheme: dark) {
+				filter: invert(1);
+				&:hover {
+					filter: invert(1) drop-shadow(var(--purple) 0px 0px var(--glow-strength));
+				}
 			}
 		}
 
